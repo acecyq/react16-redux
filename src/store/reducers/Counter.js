@@ -1,11 +1,10 @@
-import * as Actions from './Actions';
+import * as Actions from '../Actions';
 
 const startState = {
-	counter: 0,
-	results: []
+	counter: 0
 }
 
-// export default (state = startState, action) => {
+export default (state = startState, action) => {
 	switch (action.type) {
 		case Actions.INCREMENT:
 			return {
@@ -26,18 +25,6 @@ const startState = {
 			return {
 				...state,
 				counter: state.counter - action.val
-			}
-		case Actions.STORE:
-			return {
-				...state,
-				results: [...state.results, state.counter]
-			}
-		case Actions.DELETE:
-			let results = [...state.results];
-			results.splice(action.index);
-			return {
-				...state,
-				results: results
 			}
 		default:
 			return state;
