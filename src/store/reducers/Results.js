@@ -1,4 +1,4 @@
-import * as Actions from '../Actions';
+import * as actionTypes from '../actions/ActionTypes';
 
 const startState = {
 	results: []
@@ -6,18 +6,18 @@ const startState = {
 
 export default (state = startState, action) => {
 	switch (action.type) {
-		case Actions.STORE:
+		case actionTypes.STORE:
 			return {
 				...state,
 				results: [...state.results, action.val]
-			}
-		case Actions.DELETE:
+			};
+		case actionTypes.DELETE:
 			let results = [...state.results];
 			results.splice(action.index);
 			return {
 				...state,
 				results: results
-			}
+			};
 		default:
 			return state;
 	}
